@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<herd>common-lisp</herd>
+<longdescription>
+newLISP is a scripting language for developing web applications and
+programs in general and in the domains of artificial intelligence (AI)
+and statistics.
+</longdescription>
+</pkgmetadata>

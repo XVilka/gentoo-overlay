@@ -1,0 +1,40 @@
+#!/sbin/runscript
+# Copyright 1999-2005 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header$
+
+depend() {
+        need net
+}
+
+checkconfig() {
+        # first check that it exists
+        if [ ! -f /etc/mixminion/mixminiond.conf ] ; then
+                eerror "You need to setup /etc/mixminion/mixminiond.conf first"
+                eerror "Example is in /etc/mixminion/mixminiond.conf.sample"
+                return 1
+        fi
+}
+
+
+
+reload() {
+	checkconfig || return 1
+	ebegin "Reloading Mixminion"
+	/usr/bin/mixminiond reload -f /etc/mixminion/mixminiond.conf
+	eend $?
+}
+
+start() {
+	checkconfig || return 1
+        ebegin "Starting Mixminion"
+        HOME=/var/lib/mixminion
+	start-stop-daemon --start --quiet --chuid mixminion --exec /usr/bin/mixminiond -- start --quiet --daemon -f /etc/mixminion/mixminiond.conf
+        eend $?
+}
+
+stop() {
+        ebegin "Stopping Mixminion"
+	start-stop-daemon --stop --quiet --chuid mixminion --exec /usr/bin/mixminiond
+        eend $?
+}
