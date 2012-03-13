@@ -16,12 +16,12 @@ IUSE="examples source"
 DEPEND="sys-devel/gcc"
 
 RESTRICT="strip"
-S=${WORKDIR}/OW19src
+S=${WORKDIR}/OW19
 
 src_unpack() {
 	unpack ${A}
 	cd ${S}
-	#epatch "${FILESDIR}/build.sh.patch"
+	epatch "${FILESDIR}/build.sh.patch"
 }
 
 src_compile() {
