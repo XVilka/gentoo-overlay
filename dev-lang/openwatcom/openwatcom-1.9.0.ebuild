@@ -21,7 +21,7 @@ S=${WORKDIR}/OW19src
 src_unpack() {
 	unpack ${A}
 	cd ${S}
-	epatch "${FILESDIR}/build.sh.patch"
+	#epatch "${FILESDIR}/build.sh.patch"
 }
 
 src_compile() {
