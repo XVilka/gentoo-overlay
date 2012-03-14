@@ -56,7 +56,6 @@ src_prepare() {
 
 	# We'll install doc manually
 	sed -i -e '/SDCC_DOC/d' Makefile.in || die
-	sed -i -e 's/all install-doc/all/' as/Makefile.in || die
 	sed -i -e 's/ doc//' sim/ucsim/packages_in.mk || die
 
 	[[ ${PV} == "9999" ]] && eautoreconf
