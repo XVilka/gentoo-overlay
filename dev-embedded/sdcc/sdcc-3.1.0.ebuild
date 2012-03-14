@@ -49,11 +49,6 @@ src_prepare() {
 			-e 's:\<(PORTDIR|ARCH)\>:SDCC\1:g' \
 			{} + || die
 
-	#epatch "${FILESDIR}"/${P}-gcc44.patch
-	#epatch "${FILESDIR}"/${P}-getline.patch
-	#epatch "${FILESDIR}"/${P}-headers.patch
-	#epatch "${FILESDIR}"/${P}-build.patch
-
 	# We'll install doc manually
 	sed -i -e '/SDCC_DOC/d' Makefile.in || die
 	sed -i -e 's/ doc//' sim/ucsim/packages_in.mk || die
