@@ -1,6 +1,6 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/elinks/elinks-0.12_pre5-r1.ebuild,v 1.10 2011/06/22 02:33:17 nirbheek Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/elinks/elinks-9999.ebuild,v 1.1 2012/03/15 14:39:25 xvilka Exp $
 
 EAPI="4"
 
@@ -103,7 +103,7 @@ src_configure() {
 }
 
 src_install() {
-	make DESTDIR="${D}" install || die
+	emake DESTDIR="${D}" install || die
 
 	insopts -m 644 ; insinto /etc/elinks
 	#doins "${WORKDIR}"/elinks.conf
