@@ -1,0 +1,11 @@
+--- ghc-old.ebuild	2012-03-09 20:31:08.000000000 +0400
++++ ghc-7.0.4.ebuild	2012-03-25 16:54:28.382171826 +0400
+@@ -455,6 +455,8 @@
+ 			export PATH="${WORKDIR}/usr/bin:${PATH}"
+ 		fi
+ 
++		sed -i -e 's,GHC_PWD=utils,paxctl -Cm utils/ghc-pwd/dist-boot/ghc-pwd\nGHC_PWD=utils,g' configure
++
+ 		# Since GHC 6.12.2 the GHC wrappers store which GCC version GHC was
+ 		# compiled with, by saving the path to it. The purpose is to make sure
+ 		# that GHC will use the very same gcc version when it compiles haskell
