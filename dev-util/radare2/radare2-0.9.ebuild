@@ -20,10 +20,6 @@ RDEPEND="ssl? ( dev-libs/openssl ) \
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
-src_prepare() {
-	base_src_prepare
-}
-
 src_configure() {
 	econf $(use ssl || echo --without-ssl ) \
 		$(use gmp || echo --without-gmp ) \
@@ -32,7 +28,7 @@ src_configure() {
 }
 
 src_compile() {
-	emake -j1 || die "compile failed"
+	emake || die "compile failed"
 }
 
 src_install() {
