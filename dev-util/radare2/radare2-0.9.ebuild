@@ -14,8 +14,8 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="ssl gmp debug"
 
-RDEPEND="ssl? ( dev-libs/openssl ) /
-		gmp? (dev-libs/gmp ) /
+RDEPEND="ssl? ( dev-libs/openssl ) \
+		gmp? ( dev-libs/gmp ) \
 		"
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
