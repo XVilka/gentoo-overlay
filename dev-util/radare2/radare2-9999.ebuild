@@ -12,7 +12,7 @@ EHG_REPO_URI="http://radare.org/hg/radare2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="ssl gmp debug"
+IUSE="ssl ewf gmp debug"
 
 RDEPEND="ssl? ( dev-libs/openssl ) \
 		gmp? ( dev-libs/gmp ) \
@@ -25,7 +25,10 @@ src_prepare() {
 }
 
 src_configure() {
-	econf $(use_with ssl) $(use_with gmp) $(use_with debug)
+	econf $(use ssl || echo --without-ssl ) \
+		$(use gmp || echo --without-gmp ) \
+		$(use ewf || echo --without-ewf ) \
+		$(use debug || echo --without-debug )
 }
 
 src_compile() {
