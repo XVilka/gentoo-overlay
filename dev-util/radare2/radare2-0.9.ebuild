@@ -27,11 +27,7 @@ src_configure() {
 		$(use debug || echo --without-debug )
 }
 
-src_compile() {
-	emake || die "compile failed"
-}
-
 src_install() {
-	emake DESTDIR="${ED}" INSTALL_PROGRAM="install" install || die "install failed"
+	emake DESTDIR="${D}" INSTALL_PROGRAM="install" install || die "install failed"
 }
 
