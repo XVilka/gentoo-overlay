@@ -15,16 +15,15 @@ KEYWORDS="~x86 ~amd64"
 IUSE="ssl ewf gmp debug"
 
 RDEPEND="ssl? ( dev-libs/openssl ) \
-		gmp? ( dev-libs/gmp ) \
-		"
-DEPEND="${RDEPEND}
+		gmp? ( dev-libs/gmp ) "
+DEPEND="${RDEPEND} \
+	!dev-util/radare \
 	dev-util/pkgconfig"
 
 src_configure() {
 	econf $(use ssl || echo --without-ssl ) \
 		$(use gmp || echo --without-gmp ) \
-		$(use ewf || echo --without-ewf ) \
-		$(use debug || echo --without-debug )
+		$(use ewf || echo --without-ewf )
 }
 
 src_install() {
