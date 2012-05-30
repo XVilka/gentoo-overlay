@@ -53,8 +53,12 @@ src_configure() {
 		$(use_with ssl openssl)
 }
 
+src_compile() {
+	emake -j1 || die "emake failed"
+}
+
 src_install() {
-	LC_ALL=C emake DESTDIR="${D}" -j1 STRIP=: nmapdatadir="${EPREFIX}"/usr/share/nmap install || die
+	LC_ALL=C emake DESTDIR="${D}" STRIP=: nmapdatadir="${EPREFIX}"/usr/share/nmap install || die
 	dodoc CHANGELOG HACKING docs/README docs/*.txt || die
 
 	use gtk && doicon "${FILESDIR}/nmap-logo-64.png"
