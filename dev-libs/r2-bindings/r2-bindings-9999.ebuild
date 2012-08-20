@@ -4,11 +4,11 @@
 # /var/cvsroot/gentoo-x86/dev-util/r2-bindings/r2-bindings-9999.ebuild,v 1.0 2011/12/12 06:20:21 akochkov Exp $
 
 EAPI="4"
-inherit base eutils mercurial python
+inherit base eutils git-2 python
 
 DESCRIPTION="Language bindings for radare2"
 HOMEPAGE="http://www.radare.org"
-EHG_REPO_URI="http://radare.org/hg/radare2"
+EGIT_REPO_URI="git://github.com/radare/radare2.git"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -16,9 +16,9 @@ KEYWORDS="~x86 ~amd64"
 IUSE="cxx python perl php lua nodejs guile ruby"
 
 RDEPEND="perl? ( dev-lang/perl )
-	php? ( >=dev-lang/php-5.3.8 )
+	php? ( >=dev-lang/php-5.3.12 )
 	lua? ( >=dev-lang/lua-5.1.4 )
-	nodejs? ( dev-lang/nodejs )
+	nodejs? ( >=net-libs/nodejs-0.8.2 )
 	guile? ( dev-scheme/guile )
 	ruby? ( >=dev-lang/ruby-1.8.7 )"
 
@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}
 	dev-util/radare2
 	dev-util/pkgconfig
 	dev-util/valabind
-	dev-lang/swig
+	>=dev-lang/swig-2.0.7
 	>=dev-lang/vala-0.14"
 
 PYTHON_DEPEND="python? 2:2.7"

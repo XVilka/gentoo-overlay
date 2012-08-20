@@ -23,7 +23,7 @@ HOMEPAGE="http://www.qemu.org"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="+aio alsa bluetooth brltty curl fdt hardened jpeg kvm ncurses nss
-opengl png pulseaudio qemu-ifup rbd sasl sdl spice ssl static threads usbredir vde
+opengl png pulseaudio qemu-ifup rbd sasl sdl spice ssl static usbredir vde
 +vhost-net xattr xen xfs"
 
 COMMON_TARGETS="i386 x86_64 alpha arm cris m68k microblaze microblazeel mips mipsel ppc ppc64 sh4 sh4eb sparc sparc64 s390x"
@@ -190,7 +190,6 @@ src_configure() {
 		$(use_enable sdl)
 		$(use_enable spice)
 		$(use_enable ssl vnc-tls)
-		$(use_enable threads vnc-thread)
 		$(use_enable vde)
 		$(use_enable vhost-net)
 		$(use_enable xen)
