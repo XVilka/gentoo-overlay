@@ -16,7 +16,7 @@ IUSE=""
 
 DEPEND=">=dev-embedded/libftdi-0.16[doc]
 	>=dev-libs/glib-2.28
-	>=dev-libs/libusb-1.0.9
+	>=virtual/libusb-1
 	dev-libs/libzip"
 RDEPEND="${DEPEND}
 	virtual/pkgconfig

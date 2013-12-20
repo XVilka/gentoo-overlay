@@ -1,12 +1,10 @@
---- orig/build.sh	2009-10-07 10:55:38.000000000 +0200
-+++ new/build.sh	2009-10-07 10:55:19.000000000 +0200
-@@ -4,10 +4,10 @@
- # using the GNU C/C++ compiler tools. If you already have a working
+--- build.sh.orig	2012-06-16 04:05:24.316985700 +0400
++++ build.sh	2012-06-16 04:05:58.774984590 +0400
+@@ -5,9 +5,9 @@
  # Open Watcom compiler, you do not need to use the bootstrap process
  
--if [ -f setvars ]; then
+ if [ -f setvars ]; then
 -    . setvars
-+if [ -f ./setvars ]; then
 +    . ./setvars
  else
 -    . setvars.sh

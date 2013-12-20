@@ -1,26 +1,27 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header:
-# /var/cvsroot/gentoo-x86/dev-util/r2-bindings/r2-bindings-9999.ebuild,v 1.0 2011/12/12 06:20:21 akochkov Exp $
+# /var/cvsroot/gentoo-x86/dev-util/radare2-bindings/radare2-bindings-9999.ebuild,v 1.0 2011/12/12 06:20:21 akochkov Exp $
 
 EAPI="4"
 inherit base eutils git-2 python
 
 DESCRIPTION="Language bindings for radare2"
 HOMEPAGE="http://www.radare.org"
-EGIT_REPO_URI="git://github.com/radare/radare2.git"
+EGIT_REPO_URI="git://github.com/radare/radare2-bindings.git"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="cxx python perl php lua nodejs guile ruby"
+IUSE="cxx python perl php lua nodejs guile ruby ocaml"
 
 RDEPEND="perl? ( dev-lang/perl )
 	php? ( >=dev-lang/php-5.3.12 )
 	lua? ( >=dev-lang/lua-5.1.4 )
 	nodejs? ( >=net-libs/nodejs-0.8.2 )
 	guile? ( dev-scheme/guile )
-	ruby? ( >=dev-lang/ruby-1.8.7 )"
+	ruby? ( >=dev-lang/ruby-1.8.7 )
+	ocaml? ( dev-lang/ocaml )"
 
 DEPEND="${RDEPEND}
 	dev-util/radare2
@@ -36,7 +37,7 @@ src_prepare() {
 }
 
 src_configure() {
-	cd "${S}/r2-bindings"
+	cd "${S}"
 	econf --enable-devel
 }
 
@@ -47,9 +48,9 @@ src_compile() {
 	for lang_var in cxx python perl php lua nodejs guile ruby ; do
 		if use ${lang_var} ; then
 			if [[ ${lang_var} == php ]] ; then
-				cd "${S}/r2-bindings/${lang_var}5"
+				cd "${S}/${lang_var}5"
 			else
-				cd "${S}/r2-bindings/${lang_var}"
+				cd "${S}/${lang_var}"
 			fi
 
 			[[ ${lang_var} == python ]]  && export
@@ -68,9 +69,9 @@ src_install() {
 	for lang_var in cxx python perl php lua nodejs guile ruby ; do
 		if use ${lang_var} ; then
 			if [[ ${lang_var} == php ]] ; then
-				cd "${S}/r2-bindings/${lang_var}5"
+				cd "${S}/${lang_var}5"
 			else
-				cd "${S}/r2-bindings/${lang_var}"
+				cd "${S}/${lang_var}"
 			fi
 
 			[[ ${lang_var} == python ]]  && export

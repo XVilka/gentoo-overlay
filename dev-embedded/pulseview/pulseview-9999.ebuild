@@ -18,7 +18,7 @@ DEPEND="dev-libs/boost
 	>=dev-libs/glib-2.28
 	dev-libs/libsigrok
 	dev-libs/libsigrokdecode
-	x11-libs/qt-gui:4"
+	dev-qt/qtgui:4"
 RDEPEND="${DEPEND}
 	virtual/pkgconfig"
 

@@ -21,7 +21,8 @@ S=${WORKDIR}/OW19
 src_unpack() {
 	unpack ${A}
 	cd ${S}
-	epatch "${FILESDIR}/build.sh.patch"
+	epatch "${FILESDIR}/openwatcom_1.9.0_build_fix.patch"
+	epatch "${FILESDIR}/openwatcom_amd64_build_fix.patch"
 }
 
 src_compile() {

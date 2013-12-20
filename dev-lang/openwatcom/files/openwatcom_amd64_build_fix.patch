@@ -1,0 +1,11 @@
+--- bld/wmake/c/mglob.c.orig	2012-06-16 03:43:35.753023150 +0400
++++ bld/wmake/c/mglob.c	2012-06-16 03:50:13.474012498 +0400
+@@ -110,6 +110,8 @@
+     "__UNIX__=\n"
+     #if defined(__386__) || defined(__i386__) || defined(__i386)
+         "__LINUX386__=\n"
++    #elif defined(__x86_64)
++        "__LINUX386__=\n"
+     #elif defined(__PPC__) || defined(__ppc__) || defined(__powerpc__)
+         "__LINUXPPC__=\n"
+     #elif defined(__MIPS__)  || defined(__mips__)

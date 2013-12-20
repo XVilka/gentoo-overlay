@@ -18,6 +18,12 @@ DEPEND="sys-devel/gcc"
 RESTRICT="strip"
 S=${WORKDIR}/${MY_P}
 
+src_unpack() {
+	unpack ${A}
+	cd ${S}
+	epatch "${FILESDIR}/openwatcom_amd64_build_fix.patch"
+}
+
 src_compile() {
 	./build.sh || die "build.sh failed"
 }
