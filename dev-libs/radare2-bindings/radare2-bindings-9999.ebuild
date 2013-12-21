@@ -27,7 +27,7 @@ DEPEND="${RDEPEND}
 	dev-util/radare2
 	dev-util/pkgconfig
 	dev-util/valabind
-	>=dev-lang/swig-2.0.7
+	dev-lang/swig
 	>=dev-lang/vala-0.14"
 
 PYTHON_DEPEND="python? 2:2.7"
@@ -50,11 +50,14 @@ src_compile() {
 			if [[ ${lang_var} == php ]] ; then
 				cd "${S}/${lang_var}5"
 			else
-				cd "${S}/${lang_var}"
+				if [[ ${lang_var} == python ]] ; then
+					cd "${S}/ctypes"	
+				else
+					cd "${S}/${lang_var}"
+				fi
 			fi
 
-			[[ ${lang_var} == python ]]  && export
-			PYTHON_CONFIG=python2.7-config
+			[[ ${lang_var} == python ]]  && export PYTHON_CONFIG=python2.7-config
 
 			emake || die "compile failed"
 		fi
@@ -71,11 +74,14 @@ src_install() {
 			if [[ ${lang_var} == php ]] ; then
 				cd "${S}/${lang_var}5"
 			else
-				cd "${S}/${lang_var}"
+				if [[ ${lang_var} == python ]] ; then
+					cd "${S}/ctypes"	
+				else
+					cd "${S}/${lang_var}"
+				fi
 			fi
 
-			[[ ${lang_var} == python ]]  && export
-			PYTHON_CONFIG=python2.7-config
+			[[ ${lang_var} == python ]]  && export PYTHON_CONFIG=python2.7-config
 
 			emake DESTDIR="${ED}" install || die "compile failed"
 		fi

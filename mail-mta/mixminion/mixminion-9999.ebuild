@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils git
+inherit eutils git-2
 
 DESCRIPTION="A Type III Anonymous Remailer"
 HOMEPAGE="http://mixminion.net"
