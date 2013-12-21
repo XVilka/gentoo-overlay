@@ -2,21 +2,21 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils git-2
+inherit eutils
 
 LICENSE="OWPL-1"
 DESCRIPTION="The Open Watcom compiler"
 HOMEPAGE="http://www.openwatcom.org"
-EGIT_REPO_URI="git://github.com/open-watcom/owp4v1copy.git"
+SRC_URI="http://ftp.heanet.ie/pub/openwatcom/source/ow_daily.tar.bz2"
 
-KEYWORDS="x86"
+KEYWORDS="amd64 x86"
 SLOT="0"
 IUSE="examples source"
 
 DEPEND="sys-devel/gcc"
 
 RESTRICT="strip"
-S=${WORKDIR}/${MY_P}
+S=${WORKDIR}/OW9999
 
 src_unpack() {
 	unpack ${A}

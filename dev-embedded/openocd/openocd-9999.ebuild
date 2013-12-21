@@ -24,7 +24,7 @@ RESTRICT="strip" # includes non-native binaries
 
 # libftd2xx is the default because it is reported to work better.
 DEPEND="dev-lang/jimtcl
-	usb? ( dev-libs/libusb )
+	usb? ( virtual/libusb )
 	presto? ( dev-embedded/libftd2xx )
 	ftd2xx? ( dev-embedded/libftd2xx )
 	ftdi? ( dev-embedded/libftdi )"
