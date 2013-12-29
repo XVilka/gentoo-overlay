@@ -3,8 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/x11-libs/libva/libva-0.31.1_p5.ebuild,v 1.1 2011/02/03 14:15:01 aballier Exp $
 
 EAPI="2"
-inherit eutils autotools
-inherit git
+inherit eutils autotools git-2
 
 PLEVEL=${PV##*_p}
 MY_PV=${PV/_p*}

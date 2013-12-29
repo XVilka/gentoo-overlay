@@ -7,14 +7,14 @@ inherit base autotools eutils git-2
 
 DESCRIPTION="Hardware access and backend library for sigrok"
 HOMEPAGE="http://www.sigrok.org"
-EGIT_REPO_URI="git://sigrok.org/libsigrok"
+EGIT_REPO_URI="/home/xvilka/libsigrok"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=">=dev-embedded/libftdi-0.16[doc]
+DEPEND="( >=dev-embedded/libftdi-0.16[doc] <dev-embedded/libftdi-1.0[doc] )
 	>=dev-libs/glib-2.28
 	>=virtual/libusb-1
 	dev-libs/libzip"
@@ -24,6 +24,10 @@ RDEPEND="${DEPEND}
 
 src_prepare() {
 	eautoreconf
+}
+
+src_configure() {
+	econf --enable-asix-sigma
 }
 
 src_install() {
