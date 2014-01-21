@@ -3,12 +3,12 @@
 # $Header:
 # /var/cvsroot/gentoo-x86/dev-util/radare2-bindings/radare2-bindings-9999.ebuild,v 1.0 2011/12/12 06:20:21 akochkov Exp $
 
-EAPI="4"
+EAPI="5"
 inherit base eutils git-2 python
 
 DESCRIPTION="Language bindings for radare2"
 HOMEPAGE="http://www.radare.org"
-EGIT_REPO_URI="git://github.com/radare/radare2-bindings.git"
+EGIT_REPO_URI="/home/xvilka/radare2-bindings"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -37,53 +37,24 @@ src_prepare() {
 }
 
 src_configure() {
-	cd "${S}"
-	econf --enable-devel
-}
+	local lang langs
 
-src_compile() {
-	# TODO: add another languages
-	local lang_var
-
-	for lang_var in cxx python perl php lua nodejs guile ruby ; do
-		if use ${lang_var} ; then
-			if [[ ${lang_var} == php ]] ; then
-				cd "${S}/${lang_var}5"
-			else
-				if [[ ${lang_var} == python ]] ; then
-					cd "${S}/ctypes"	
-				else
-					cd "${S}/${lang_var}"
-				fi
-			fi
-
-			[[ ${lang_var} == python ]]  && export PYTHON_CONFIG=python2.7-config
-
-			emake || die "compile failed"
+	for lang in cxx python perl php lua nodejs guile ruby ; do
+		if use ${lang}; then
+			case ${lang} in
+				php)
+					lang=php5
+					;;
+				python)
+					lang=ctypes
+					;;
+			esac
+			langs+=",$lang"
 		fi
 	done
-
+	econf --enable=${langs:1}
 }
 
 src_install() {
-	# TODO: add another languages
-	local lang_var
-
-	for lang_var in cxx python perl php lua nodejs guile ruby ; do
-		if use ${lang_var} ; then
-			if [[ ${lang_var} == php ]] ; then
-				cd "${S}/${lang_var}5"
-			else
-				if [[ ${lang_var} == python ]] ; then
-					cd "${S}/ctypes"	
-				else
-					cd "${S}/${lang_var}"
-				fi
-			fi
-
-			[[ ${lang_var} == python ]]  && export PYTHON_CONFIG=python2.7-config
-
-			emake DESTDIR="${ED}" install || die "compile failed"
-		fi
-	done
+	emake install-plugins || die "Install bindings failed"
 }
