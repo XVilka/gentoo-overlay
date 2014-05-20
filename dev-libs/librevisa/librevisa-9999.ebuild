@@ -5,31 +5,22 @@
 EAPI=5
 inherit base autotools eutils git-2
 
-DESCRIPTION="Hardware access and backend library for sigrok"
-HOMEPAGE="http://www.sigrok.org"
-EGIT_REPO_URI="git://sigrok.org/libsigrok"
+DESCRIPTION="Library for VISA standard for interfacing test and measurement equipment"
+HOMEPAGE="http://www.librevisa.org/"
+EGIT_REPO_URI="http://www.librevisa.org/git/librevisa.git"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="( >=dev-embedded/libftdi-0.16[doc] <dev-embedded/libftdi-1.0[doc] )
-	>=dev-libs/glib-2.32
-	dev-libs/libserialport
-	dev-libs/librevisa
-	>=virtual/libusb-1
-	dev-libs/libzip"
+DEPEND=">=dev-libs/glib-2.32"
 RDEPEND="${DEPEND}
 	virtual/pkgconfig
 	virtual/udev"
 
 src_prepare() {
 	eautoreconf
-}
-
-src_configure() {
-	econf --enable-asix-sigma
 }
 
 src_install() {
