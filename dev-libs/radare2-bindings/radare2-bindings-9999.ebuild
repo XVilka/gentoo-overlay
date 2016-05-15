@@ -8,7 +8,7 @@ inherit base eutils git-2 python
 
 DESCRIPTION="Language bindings for radare2"
 HOMEPAGE="http://www.radare.org"
-EGIT_REPO_URI="/home/xvilka/radare/radare2-bindings"
+EGIT_REPO_URI="git://github.com/radare/radare2-bindings.git"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -46,7 +46,7 @@ src_configure() {
 					lang=php5
 					;;
 				python)
-					lang=python
+					lang=ctypes
 					;;
 			esac
 			langs+=",$lang"

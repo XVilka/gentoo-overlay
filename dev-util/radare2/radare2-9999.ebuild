@@ -7,8 +7,7 @@ inherit base eutils git-2
 
 DESCRIPTION="Advanced command line hexadecimal editor and more"
 HOMEPAGE="http://www.radare.org"
-EGIT_REPO_URI="/home/xvilka/radare/radare2"
-EGIT_BRANCH="radare"
+EGIT_REPO_URI="git://github.com/radare/radare2.git"
 
 LICENSE="GPL-2"
 SLOT="0"
