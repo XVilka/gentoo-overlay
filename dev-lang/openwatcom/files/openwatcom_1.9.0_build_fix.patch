@@ -1,0 +1,14 @@
+--- build.sh.orig	2012-06-16 04:05:24.316985700 +0400
++++ build.sh	2012-06-16 04:05:58.774984590 +0400
+@@ -5,9 +5,9 @@
+ # Open Watcom compiler, you do not need to use the bootstrap process
+ 
+ if [ -f setvars ]; then
+-    . setvars
++    . ./setvars
+ else
+-    . setvars.sh
++    . ./setvars.sh
+ fi
+ if [ ! -f $DEVDIR/build/binl/wtouch ]; then
+     cp -p `which touch` $DEVDIR/build/binl/wtouch

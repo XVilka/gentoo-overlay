@@ -1,0 +1,35 @@
+--- GccUnix.mak	2013-09-13 01:59:34.000000000 +0400
++++ GccUnix.mak.2	2014-06-23 02:15:02.296198837 +0400
+@@ -29,9 +29,9 @@
+ include gccmod.inc
+ 
+ #.c.o:
+-#	$(CC) -c $(inc_dirs) $(c_flags) -o $(OUTD)/$*.o $<
++#	$(CC) -m32 -c $(inc_dirs) $(c_flags) -o $(OUTD)/$*.o $<
+ $(OUTD)/%.o: %.c
+-	$(CC) -c $(inc_dirs) $(c_flags) -o $(OUTD)/$*.o $<
++	$(CC) -m32 -c $(inc_dirs) $(c_flags) -o $(OUTD)/$*.o $<
+ 
+ all:  $(OUTD) $(OUTD)/$(TARGET1)
+ 
+@@ -40,16 +40,16 @@
+ 
+ $(OUTD)/$(TARGET1) : $(OUTD)/main.o $(proj_obj)
+ ifeq ($(DEBUG),0)
+-	$(CC) $(OUTD)/main.o $(proj_obj) -s -o $@ -Wl,-Map,$(OUTD)/$(TARGET1).map
++	$(CC) -m32 $(OUTD)/main.o $(proj_obj) -s -o $@ -Wl,-Map,$(OUTD)/$(TARGET1).map
+ else
+-	$(CC) $(OUTD)/main.o $(proj_obj) -o $@ -Wl,-Map,$(OUTD)/$(TARGET1).map
++	$(CC) -m32 $(OUTD)/main.o $(proj_obj) -o $@ -Wl,-Map,$(OUTD)/$(TARGET1).map
+ endif
+ 
+ $(OUTD)/msgtext.o: msgtext.c H/msgdef.h
+-	$(CC) -c $(inc_dirs) $(c_flags) -o $*.o msgtext.c
++	$(CC) -m32 -c $(inc_dirs) $(c_flags) -o $*.o msgtext.c
+ 
+ $(OUTD)/reswords.o: reswords.c H/instruct.h H/special.h H/directve.h H/opndcls.h H/instravx.h
+-	$(CC) -c $(inc_dirs) $(c_flags) -o $*.o reswords.c
++	$(CC) -m32 -c $(inc_dirs) $(c_flags) -o $*.o reswords.c
+ 
+ ######
+ 

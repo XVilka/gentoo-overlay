@@ -4,13 +4,13 @@
 
 EAPI=3
 
-IUSE="luajit vim-syntax"
+IUSE="gtk3 luajit vim-syntax"
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-2
-	EGIT_REPO_URI="git://github.com/mason-larobina/${PN}.git
-		https://github.com/mason-larobina/${PN}.git"
-	EGIT_BRANCH="develop"
+	EGIT_REPO_URI="git://github.com/XVilka/${PN}.git
+		https://github.com/XVilka/${PN}.git"
+	EGIT_BRANCH="master"
 	KEYWORDS=""
 	SRC_URI=""
 else
@@ -31,10 +31,14 @@ COMMON_DEPEND="
 	!luajit? ( >=dev-lang/lua-5.1 )
 	dev-db/sqlite:3
 	dev-libs/glib:2
-	dev-libs/libunique:1
+	gtk3? ( dev-libs/libunique:3 )
+	!gtk3? ( dev-libs/libunique:1 )
 	net-libs/libsoup:2.4
-	net-libs/webkit-gtk:2
-	x11-libs/gtk+:2
+	gtk3? ( net-libs/webkit-gtk:3 )
+	!gtk3? ( net-libs/webkit-gtk:2 )
+	gtk3? ( x11-libs/gtk+:3 )
+	!gtk3? ( x11-libs/gtk+:2 )
+
 "
 
 DEPEND="
@@ -65,6 +69,7 @@ src_prepare() {
 src_compile() {
 	myconf="PREFIX=/usr DEVELOPMENT_PATHS=0"
 	use luajit && myconf+=" USE_LUAJIT=1"
+	use gtk3 && myconf+=" USE_GTK3=1"
 
 	if [[ ${PV} != *9999* ]]; then
 		myconf+=" VERSION=${PV}"

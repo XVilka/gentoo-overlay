@@ -2,22 +2,22 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/dev-util/valabind/valabind-9999.ebuild,v 1.0 2011/12/07 06:20:21 akochkov Exp $
 
-EAPI="3"
-inherit base eutils mercurial
+EAPI=5
+inherit base eutils git-2
 
 DESCRIPTION="Valabind is a tool to parse vala or vapi files to transform them into swig files"
-HOMEPAGE="http://hg.youterm.com/valabind"
-EHG_REPO_URI="http://hg.youterm.com/valabind"
+HOMEPAGE="http://github.com/radare/valabind"
+EGIT_REPO_URI="git://github.com/radare/valabind.git"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=">=dev-lang/vala-0.14
-		dev-lang/swig"
+RDEPEND="dev-lang/swig
+	>=dev-lang/vala-0.14"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 src_prepare() {
 	base_src_prepare
