@@ -63,5 +63,8 @@ src_compile() {
 }
 
 src_install() {
-	emake install-plugins || die "Install bindings failed"
+	if use python; then
+		emake DESTDIR="${D}" install-ctypes || die "Install ctypes failed"
+	fi
+	emake DESTDIR="${D}" install-plugins || die "Install bindings failed"
 }
