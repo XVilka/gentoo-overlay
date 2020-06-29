@@ -3,7 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/dev-util/valabind/valabind-9999.ebuild,v 1.0 2011/12/07 06:20:21 akochkov Exp $
 
 EAPI=5
-inherit base eutils git-2
+inherit base eutils git-r3
 
 DESCRIPTION="Valabind is a tool to parse vala or vapi files to transform them into swig files"
 HOMEPAGE="http://github.com/radare/valabind"

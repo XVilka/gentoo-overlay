@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit eutils git-2
+inherit eutils git-r3
 
 DESCRIPTION="free MASM-compatible assembler"
 HOMEPAGE="http://jwasm.info"
