@@ -4,7 +4,7 @@
 
 EAPI="4"
 
-inherit eutils git-2 autotools flag-o-matic
+inherit eutils git-r3 autotools flag-o-matic
 
 DESCRIPTION="Advanced and well-established text-mode web browser"
 HOMEPAGE="http://elinks.cz/"
