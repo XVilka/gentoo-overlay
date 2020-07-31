@@ -2,11 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils git
+EAPI="5"
+
+inherit eutils git-r3
 
 DESCRIPTION="Prototype constraint-based diagram editor"
 HOMEPAGE="http://www.csse.monash.edu.au/~mwybrow/dunnart/"
-EGIT_REPO_URI="git://github.com/mjwybrow/dunnart.git"
+EGIT_REPO_URI="https://github.com/mjwybrow/dunnart.git"
 S="${WORKDIR}/dunnart-git"
 
 LICENSE="GPL"

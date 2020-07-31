@@ -3,12 +3,12 @@
 # $Header: $
 
 EAPI=5
-inherit base eutils git-2
+inherit base eutils git-r3
 
 LICENSE="OWPL-1"
 DESCRIPTION="The Open Watcom compiler"
 HOMEPAGE="http://www.openwatcom.org"
-EGIT_REPO_URI="git://github.com/open-watcom/open-watcom-v2.git"
+EGIT_REPO_URI="https://github.com/open-watcom/open-watcom-v2.git"
 
 KEYWORDS="amd64 x86"
 SLOT="0"
