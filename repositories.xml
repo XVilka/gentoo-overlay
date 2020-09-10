@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+	<repo quality="experimental" status="unofficial">
+		<name>xvilka-overlay</name>
+		<description lang="en">Assemblers, LISP</description>
+		<homepage>https://github.com/XVilka/gentoo-overlay</homepage>
+		<owner type="person">
+			<name>XVilka</name>
+			<email>xvilka@gmail.com</email>
+		</owner>
+		<source type="git">https://github.com/XVilka/gentoo-overlay.git</source>
+		<feed>https://github.com/XVilka/gentoo-overlay/commits/master.atom</feed>
+	</repo>
+</repositories>
