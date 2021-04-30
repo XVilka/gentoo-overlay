@@ -9,8 +9,8 @@ PYTHON_COMPAT=( python{3_6,3_7,3_8,3_9} )
 inherit distutils-r1
 
 DESCRIPTION="A malware identification and classification tool"
-HOMEPAGE="https://plusvic.github.io/yara/"
-SRC_URI="https://github.com/plusvic/yara/archive/v${PV}.tar.gz"
+HOMEPAGE="https://virustotal.github.io/yara-python/"
+SRC_URI="https://github.com/VirusTotal/yara-python/archive/v${PV}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"

@@ -2,8 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/dev-util/degate/degate-9999.ebuild,v 2.0 2012/08/21 06:20:21 akochkov Exp $
 
-EAPI="5"
-inherit base cmake-utils eutils git-r3
+EAPI=7
+inherit cmake-utils eutils git-r3
 
 DESCRIPTION="VLSI reverse engineering tool for digital logic"
 HOMEPAGE="http://www.degate.org"
