@@ -236,6 +236,7 @@ src_prepare() {
 	local patchdir="${WORKDIR}/php-patches-${PATCH_V}"
 
 	eapply "${patchdir}/"
+	eapply "${FILESDIR}/php-icu4c-68.1-support.patch"
 
 	# Copy test binaries from patches
 	local ext_src
