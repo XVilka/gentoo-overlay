@@ -237,6 +237,7 @@ src_prepare() {
 
 	eapply "${patchdir}/"
 	eapply "${FILESDIR}/php-icu4c-68.1-support.patch"
+	eapply "${FILESDIR}/php-fpm-fix-scoreboard-lpe.patch"
 
 	# Copy test binaries from patches
 	local ext_src
